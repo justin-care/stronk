@@ -1,4 +1,49 @@
 @import "tailwindcss";
 @plugin "daisyui"{
-    themes: light --default, dark, business, luxury;
+    themes: light --default, dark, business, luxury, forest;
+}
+
+/* @theme {
+    --breakpoint-xsm: 330px;
+} */
+
+/* Toast positioning and animations */
+.toast {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.toast .alert {
+    pointer-events: auto;
+    animation: slideInRight 0.3s ease-out;
+    margin-bottom: 0.5rem;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.toast .alert.removing {
+    animation: slideOutRight 0.3s ease-in;
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
 }
